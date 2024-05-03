@@ -1,0 +1,519 @@
+@media screen and (max-width: 768px) {
+    .container {
+        width: 100%;
+    }
+    .home,
+    .quiz-section {
+        width: 100%;
+        left: 0;
+    }
+    .popup-info {
+        width: 90%;
+        max-width: 400px;
+    }
+    .quiz-box {
+        width: 90%;
+        max-width: 400px;
+    }
+    .result-box {
+        width: 90%;
+        max-width: 400px;
+    }
+}
+@media screen and (max-width: 480px) {
+    .container {
+        width: 100%;
+    }
+    .home,
+    .quiz-section {
+        width: 100%;
+        left: 0;
+    }
+    .popup-info {
+        width: 90%;
+        max-width: 300px;
+    }
+    .quiz-box {
+        width: 90%;
+        max-width: 300px;
+    }
+    .result-box {
+        width: 90%;
+        max-width: 300px;
+    }
+    .home-content h1 {
+        font-size: 36px;
+    }
+    .home-content p {
+        font-size: 16px;
+    }
+    .home-content .start-btn {
+        width: 150px;
+        height: 40px;
+        font-size: 14px;
+    }
+    .quiz-box h1 {
+        font-size: 24px;
+    }
+    .quiz-box .question-text {
+        font-size: 18px;
+    }
+    .option-list .option {
+        padding: 8px;
+        font-size: 14px;
+    }
+    .quiz-footer .next-btn {
+        width: 80px;
+        height: 35px;
+        font-size: 14px;
+    }
+    .result-box h2 {
+        font-size: 32px;
+    }
+    .result-box .percentage-container {
+        width: 250px;
+        margin: 10px 0 20px;
+    }
+    .circular-progress {
+        width: 200px;
+        height: 200px;
+    }
+    .circular-progress::before {
+        width: 160px;
+        height: 160px;
+    }
+    .circular-progress .progress-value {
+        font-size: 36px;
+    }
+    .percentage-container .score-text {
+        font-size: 20px;
+        margin-top: 15px;
+    }
+    .buttons button {
+        width: 150px;
+        height: 40px;
+        font-size: 14px;
+        margin: 0 10px 10px;
+    }
+}
+
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+body {
+    color: #fff;
+    background: #090909;
+    overflow: hidden;
+}
+
+ 
+.main {
+    min-height: 100vh;
+    background-position: center;
+    background:url('https://img.freepik.com/premium-photo/blank-yellow-sticky-note-pencil-navy-blue-table-background_7189-3543.jpg') no-repeat;
+    background-size: cover;
+    transition: .3s ease;
+    pointer-events: auto;
+ 
+
+}
+
+.main.active {
+    filter: blur(15px);
+    pointer-events: none;
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+    width: 200%;
+}
+
+.home {
+    position: relative;
+    left: -50%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.home-content {
+    max-width: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.home-content h1 {
+    margin-top: 100px;
+    font-size: 78px;
+    font-weight: 700;
+    text-shadow: 0 0 10px rgba(0, 0, 0, .3);
+}
+
+.home-content p {
+    margin-top: 20px;
+    font-size: 22px;
+    text-align: center;
+    margin-bottom: 30px;
+    text-shadow: 0 0 10px rgb(0, 0, 0, .3);
+}
+
+.home-content .start-btn {
+    width: 190px;
+    height: 55px;
+    background: #ff8000;
+    border: 2px solid #ff8000;
+    outline: none;
+    border-radius: 6px;
+    box-shadow: 0 0 10px #ff8000;
+    font-size: 18px;
+    color: #fff;
+    letter-spacing: 1px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.home-content .start-btn:hover {
+    background: #090909;
+    box-shadow: none;
+}
+
+.popup-info {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(.9);
+    width: 500px;
+    background: #fff;
+    border-radius: 6px;
+    padding: 10px 25px;
+    opacity: 0;
+    pointer-events: none;
+    transition: .3s ease;
+}
+
+.popup-info.active {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.popup-info h2 {
+    text-align: center;
+    font-size: 38px;
+    color: #0d1cf2;
+}
+ 
+
+.popup-info .info {
+    font-family: 'Times New Roman', Times, serif;
+    display: inline-block;
+    font-size: 20px;
+    color: #333;
+    font-weight: 500;
+    margin: 8px 0;
+}
+
+.commonInfo{
+    margin-top: 5px;
+}
+.popup-info .btn-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #999;
+    margin-top: 10px;
+    padding: 15px 0 7px;
+}
+
+.popup-info .btn-group .info-btn {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 130px;
+    height: 45px;
+    background: #0d1cf2;
+    border: 2px solid #0d1cf2;
+    outline: none;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 16px;
+    color: #fff;
+    font-weight: 600;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+    cursor: pointer;
+    transition: .5s;
+}
+
+.popup-info .btn-group .info-btn:nth-child(1) {
+    background: transparent;
+    color: #0d1cf2;
+}
+
+.popup-info .btn-group .info-btn:nth-child(1):hover {
+    background: #0d1cf2;
+    color: #fff;
+}
+
+.popup-info .btn-group .info-btn:nth-child(2):hover {
+    background: #3c44bc;
+    color: #fff;
+}
+
+.quiz-section {
+    position: relative;
+    left: -50%;
+    width: 100%;
+    background: #090909;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    transition: .8s ease-in-out;
+    transition-delay: .25s;
+}
+
+.quiz-section.active {
+    left: 0;
+}
+
+.quiz-section .quiz-box {
+    position: relative;
+    width: 500px;
+    background: transparent;
+    border: 2px solid #0d1cf2;
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+    padding: 20px 30px;
+    opacity: 0;
+    pointer-events: none;
+    transform: scale(.9);
+    transition: 3s ease;
+    transition-delay: 0s;
+}
+
+.quiz-section .quiz-box.active {
+    opacity: 1;
+    pointer-events: auto;
+    transform: scale(1);
+    transition: 1s ease;
+    transition-delay: 1s;
+}
+
+.quiz-box h1 {
+    font-size: 32px;
+    text-align: center;
+    background: linear-gradient(45deg, transparent, #0d1cf2, transparent);
+    border-radius: 6px;
+}
+
+.quiz-box .quiz-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+    border-radius: 2px solid #0d1cf2;
+    margin-bottom: 30px;
+}
+
+.quiz-header span {
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.quiz-header .header-score {
+    background: #0d1cf2;
+    border-radius: 3px;
+    padding: 7px;
+}
+
+.quiz-box .question-text {
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.option-list .option {
+    width: 100%;
+    padding: 12px;
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, .2);
+    border-radius: 4px;
+    font-size: 17px;
+    margin: 15px 0;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.option-list .option:hover {
+    background: rgba(255, 255, 255, .1);
+    border-color: rgba(255, 255, 255, .1);
+}
+
+.option-list .option.correct {
+    background: #09001d;
+    color: #00a63d;
+    border-color: #00a63d;
+}
+
+.option-list .option.disabled {
+    pointer-events: none;
+}
+
+.option-list .option.incorrect {
+    background: #09001d;
+    color: #a60600;
+    border-color: #a60600;
+}
+
+.quiz-box .quiz-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 2px solid #0d1cf2;
+    padding-top: 20px;
+    margin-top: 25px;
+}
+
+.quiz-footer .question-total {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.quiz-footer .next-btn {
+    width: 100px;
+    height: 45px;
+    background: rgba(255, 255, 255, .1);
+    border: 2px solid rgba(255, 255, 255, .1);
+    outline: none;
+    border-radius: 6px;
+    font-size: 16px;
+    color: rgba(255, 255, 255, .3);
+    font-weight: 600;
+    cursor: pointer;
+    pointer-events: none;
+    transition: .5s;
+}
+
+.quiz-footer .next-btn.active {
+    pointer-events: auto;
+    background: #0003c4;
+    border-color: #0003c4;
+    color: #fff;
+}
+
+.quiz-footer .next-btn.active:hover {
+    background: #2729b3;
+    border-color: #282bbe;
+}
+
+.quiz-section .result-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 500px;
+    background: radial-gradient(circle at 74.2% 50.9%, rgb(14, 72, 222) 5.2%, rgb(3, 22, 65) 75.3%);
+    border: 2px solid #2729b3;
+    border-radius: 6px;
+    padding: 20px;
+    display: none;  
+    flex-direction: column;
+    align-items: center;
+    
+    transition: .3s ease;
+}
+
+.quiz-section .result-box.active {
+    display: flex;  
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.result-box h2 {
+    font-size: 52px;
+}
+
+.result-box .percentage-container {
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px 0 40px;
+}
+
+.percentage-container .circular-progress {
+    position: relative;
+    width: 250px;
+    height: 250px;
+     
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    background: conic-gradient(#2729b3 3.6deg, rgba(255, 255, 255, .1) 0deg);
+    align-items: center;
+}
+
+.percentage-container .circular-progress::before {
+    content: '';
+    position: absolute;
+    width: 210px;
+    height: 210px;
+    background: #09001d;
+    border-radius: 50%;
+}
+
+.circular-progress .progress-value {
+    position: relative;
+    font-size: 45px;
+    font-weight: 600;
+}
+
+.percentage-container .score-text {
+    font-size: 26px;
+    font-weight: 600;
+    margin-top: 20px;
+}
+
+.result-box .buttons {
+    display: flex;
+}
+
+.buttons button {
+    width: 178px;
+    height: 47px;
+    background: #2729b3;
+    border: 2px solid #2729b3;
+    outline: none;
+    border-radius: 6px;
+    font-size: 16px;
+    color: #fff;
+    font-weight: 600;
+    margin: 0 20px 20px;
+    cursor: pointer;
+    transition: .5s;
+}
+
+.buttons button:nth-child(1):hover {
+    background: #2729b3;
+    border-color: #2729b3;
+}
+
+.buttons button:nth-child(2) {
+    background: transparent;
+    color: #ffffff;
+}
+
+.buttons button:nth-child(2):hover {
+    background: #0d1cf2;
+    color: #fff;
+}
